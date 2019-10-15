@@ -77,7 +77,7 @@ let runnersLargeSizeShirt = [];
 let shirtFilter = runners.filter(function (currentValue) {
   return currentValue.shirt_size === "L";
 });
-
+//why was I not able to add the filter method to the string of runnersLargeSize Shirt?
 runnersLargeSizeShirt.push(shirtFilter);
 console.log(runnersLargeSizeShirt);
 
@@ -87,7 +87,7 @@ let ticketPriceTotal = 0;
 let ticketReduce = runners.reduce(function (accumulator, currentValue) {
   return accumulator + currentValue.donation;
 }, 0);
-
+//same question from previous challenge???
 ticketPriceTotal = ticketReduce;
 console.log(ticketPriceTotal);
 
@@ -95,7 +95,29 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+//creating a thank you letter to the companies who participated. Making a list of the companies and the email
+
+let contacts = [];
+runners.forEach(function (currentValue) {
+  contacts.push(`${currentValue.company_name} ${currentValue.email}`)
+});
+
+console.log(contacts);
 
 // Problem 2
+//runner needs to know if he already registered
+let sameName = runners.filter(function (currentValue) {
+  return currentValue.first_name === 'Hank' || currentValue.lastname === "Zebedee";
+});
 
+console.log(sameName)
 // Problem 3
+//created the average amount of money donated by the participants
+
+let averageDonation = 0;
+let ticketReduct = runners.reduce(function (accumulator, currentValue) {
+  return accumulator + currentValue.donation;
+}, 0);
+
+ticketPriceTotal = ticketReduct / runners.length;
+console.log(ticketPriceTotal);
